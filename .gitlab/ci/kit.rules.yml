@@ -1,0 +1,31 @@
+# Breslov Academy — GitLab CI Kit (rules + defaults)
+# NOTE: This file is intended to be included from the canonical .gitlab-ci.yml via:
+#   include:
+#     - local: .gitlab/ci/kit.rules.yml
+
+stages:
+  - lint
+  - test
+  - build
+  - zip
+  - release
+
+variables:
+  NODE_ENV: "production"
+  NPM_CONFIG_CACHE: "$CI_PROJECT_DIR/.npm"
+  # Keep npm output readable in GitLab logs
+  npm_config_loglevel: "warn"
+
+# Reusable Windows + Node base (assumes a Windows runner with Node.js installed)
+.win_node_base:
+  tags:
+    - windows
+  cache:
+    key: "npm-$CI_COMMIT_REF_SLUG"
+    paths:
+      - .npm/
+  before_script:
+    - node -v
+    - npm -v
+    - npm config set cache "$env:NPM_CONFIG_CACHE" --global
+    - npm ci

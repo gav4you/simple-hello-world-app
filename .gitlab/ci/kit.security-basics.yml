@@ -1,0 +1,46 @@
+# Breslov Academy — Security Basics (no external GitLab templates)
+# Safe by default for Windows shell runners.
+
+security:npm_audit:
+  stage: test
+  extends: .win_node_base
+  script:
+    - npm audit --audit-level=high
+  allow_failure: true
+
+security:secret_scan:
+  stage: test
+  extends: .win_node_base
+  script:
+    - |
+      $patterns = @(
+        "-----BEGIN PRIVATE KEY-----",
+        "AKIA",                 # AWS Access Key (prefix)
+        "ASIA",                 # AWS STS key (prefix)
+        "glpat-",               # GitLab PAT
+        "ghp_",                 # GitHub classic token
+        "xoxb-", "xoxp-",       # Slack tokens
+        "sk_live_", "rk_live_"  # Stripe-like live keys (common patterns)
+      )
+
+      $includeExt = @("*.js","*.jsx","*.ts","*.tsx","*.json","*.yml","*.yaml","*.env","*.env.*","*.md")
+      $files = Get-ChildItem -Path . -Recurse -File -Include $includeExt |
+        Where-Object {
+          $_.FullName -notmatch "\\node_modules\\" -and
+          $_.FullName -notmatch "\\dist\\" -and
+          $_.FullName -notmatch "\\.git\\"
+        }
+
+      $hits = @()
+      foreach ($p in $patterns) {
+        $m = $files | Select-String -Pattern $p -SimpleMatch -ErrorAction SilentlyContinue
+        if ($m) { $hits += $m }
+      }
+
+      if ($hits.Count -gt 0) {
+        Write-Host "Potential secrets detected:"
+        $hits | Select-Object -First 200 | ForEach-Object { Write-Host ("- " + $_.Path + ":" + $_.LineNumber) }
+        throw "Secret scan failed. Remove secrets or use masked CI variables."
+      } else {
+        Write-Host "Secret scan: OK"
+      }

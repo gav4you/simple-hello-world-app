@@ -1,0 +1,219 @@
+{
+  "site": {
+    "name": "Breslov Academy",
+    "tagline": "Torah learning, built like a modern platform.",
+    "defaultDescription": "Breslov Academy is a multi-school LMS with protected content, storefronts, licensing, quizzes, and teacher tooling."
+  },
+  "routes": {
+    "/": {
+      "title": "Breslov Academy",
+      "description": "Torah learning, built like a modern platform. Multi-school LMS with protected content, storefronts, licensing, quizzes, and teacher tooling.",
+      "hero": {
+        "heading": "Torah learning, built like a modern platform.",
+        "body": "Multi-school learning with protected lessons, storefronts, licensing add-ons, quizzes, and teacher tooling \u2014 designed for clarity, speed, and trust.",
+        "ctas": [
+          {
+            "label": "Browse a School Storefront",
+            "href": "/s/demo"
+          },
+          {
+            "label": "Teacher Login",
+            "href": "/login/teacher"
+          },
+          {
+            "label": "Student Login",
+            "href": "/login/student"
+          }
+        ]
+      },
+      "sections": [
+        {
+          "title": "What you get",
+          "bullets": [
+            "Protected lessons with watermarking, preview limits, and download rules",
+            "Storefront per school: landing, catalog, checkout, thank you",
+            "Quizzes: teacher builder, student attempts, course integration",
+            "Strict multi-tenancy enforcement (school isolation + scoped entities)",
+            "Vault + Feature Registry: zero feature loss, everything discoverable"
+          ]
+        },
+        {
+          "title": "Built for real schools",
+          "body": "Each school has its own branding, policies, products, staff, and learners \u2014 while the platform remains unified and secure."
+        }
+      ]
+    },
+    "/about": {
+      "title": "About \u2014 Breslov Academy",
+      "description": "What Breslov Academy is and why it exists.",
+      "hero": {
+        "heading": "A platform for Torah learning at scale.",
+        "body": "Breslov Academy combines protected content delivery, storefront commerce, and teacher tooling into a single coherent system."
+      },
+      "sections": [
+        {
+          "title": "Our focus",
+          "bullets": [
+            "Clarity for learners",
+            "Control for schools",
+            "Trust through protection + tenancy",
+            "Sane workflows for teachers"
+          ]
+        },
+        {
+          "title": "Zero feature loss",
+          "body": "Everything remains accessible via the Vault/Feature Registry \u2014 nothing gets deleted when we evolve."
+        }
+      ]
+    },
+    "/how-it-works": {
+      "title": "How it works \u2014 Breslov Academy",
+      "description": "How schools publish content, sell access, and teach learners.",
+      "hero": {
+        "heading": "Publish. Protect. Teach.",
+        "body": "Create courses and lessons, set policies, sell access via a storefront, and assess learning with quizzes."
+      },
+      "sections": [
+        {
+          "title": "1) Schools publish",
+          "bullets": [
+            "Create courses/lessons",
+            "Set protection policies",
+            "Assign staff roles"
+          ]
+        },
+        {
+          "title": "2) Learners access",
+          "bullets": [
+            "Buy or receive entitlements",
+            "Preview before purchase (optional)",
+            "Drip scheduling supported"
+          ]
+        },
+        {
+          "title": "3) Teachers assess",
+          "bullets": [
+            "Build quizzes",
+            "Track attempts and progress",
+            "Iterate content safely"
+          ]
+        }
+      ]
+    },
+    "/pricing": {
+      "title": "Pricing \u2014 Breslov Academy",
+      "description": "Simple platform pricing with tenant-controlled offers and add-ons.",
+      "hero": {
+        "heading": "Pricing that scales with schools.",
+        "body": "Schools configure offers, subscriptions, and add-ons. Platform pricing can be tailored to your rollout plan."
+      },
+      "sections": [
+        {
+          "title": "Included",
+          "bullets": [
+            "Storefront per school",
+            "Protected content delivery",
+            "Entitlements + licensing add-ons",
+            "Quizzes and attempts",
+            "Admin tooling + auditability"
+          ]
+        },
+        {
+          "title": "Need a custom setup?",
+          "body": "Contact us to align branding, migration, and monetization strategy."
+        }
+      ]
+    },
+    "/faq": {
+      "title": "FAQ \u2014 Breslov Academy",
+      "description": "Common questions about access, protection, and storefronts.",
+      "hero": {
+        "heading": "Frequently asked questions",
+        "body": "Answers about protected content, entitlements, and multi-school operation."
+      },
+      "sections": [
+        {
+          "title": "Does it prevent copying?",
+          "body": "We apply UI-layer protection (copy/print/download blocks) plus watermarking and entitlement gating."
+        },
+        {
+          "title": "Can each school have its own storefront?",
+          "body": "Yes \u2014 each school has its own storefront at /s/<slug> with its own catalog and policies."
+        },
+        {
+          "title": "Can students preview?",
+          "body": "Schools can allow previews with limits (questions/time/word count) before full access."
+        }
+      ]
+    },
+    "/contact": {
+      "title": "Contact \u2014 Breslov Academy",
+      "description": "Get in touch about onboarding a school.",
+      "hero": {
+        "heading": "Talk to us",
+        "body": "Tell us what you\u2019re building and we\u2019ll map the fastest, safest rollout."
+      },
+      "sections": [
+        {
+          "title": "Email",
+          "body": "support@breslov.academy (replace in tenant settings)"
+        },
+        {
+          "title": "What to include",
+          "bullets": [
+            "Your school name",
+            "Desired storefront URL",
+            "Content types (video/pdf/text)",
+            "Monetization model",
+            "Timeline"
+          ]
+        }
+      ]
+    },
+    "/privacy": {
+      "title": "Privacy Policy \u2014 Breslov Academy",
+      "description": "Privacy policy and data handling.",
+      "hero": {
+        "heading": "Privacy Policy",
+        "body": "We collect only what\u2019s needed to run the service. Schools control their tenant data boundaries."
+      },
+      "sections": [
+        {
+          "title": "Data we store",
+          "bullets": [
+            "Account profile + authentication identifiers",
+            "School membership + roles",
+            "Purchase/entitlement records",
+            "Quiz attempts and progress"
+          ]
+        },
+        {
+          "title": "Data isolation",
+          "body": "Tenant data is scoped by school_id and enforced by the platform tenancy layer."
+        }
+      ]
+    },
+    "/terms": {
+      "title": "Terms of Service \u2014 Breslov Academy",
+      "description": "Terms of service for platform usage.",
+      "hero": {
+        "heading": "Terms of Service",
+        "body": "By using the platform you agree to follow school policies and respect protected materials."
+      },
+      "sections": [
+        {
+          "title": "Acceptable use",
+          "bullets": [
+            "No unauthorized redistribution",
+            "Respect content protection policies",
+            "Follow applicable laws and school rules"
+          ]
+        },
+        {
+          "title": "Limitations",
+          "body": "UI-layer protections reduce casual copying; determined users may still attempt bypasses. We continuously harden."
+        }
+      ]
+    }
+  }
+}
