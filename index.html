@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://base44.com/logo_v2.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Base SEO (per-route content injected by scripts/generate-public-pages.mjs) -->
+    <title>Breslov Academy</title>
+    <meta name="description" content="Torah learning, built like a modern platform." />
+    <meta property="og:title" content="Breslov Academy" />
+    <meta property="og:description" content="Torah learning, built like a modern platform." />
+    <meta property="og:type" content="website" />
+
+    <!--PUBLIC_META_START-->
+    <title>Breslov Academy</title>
+    <meta name="description" content="Torah learning, built like a modern platform. Multi-school LMS with protected content, storefronts, licensing, quizzes, and teacher tooling." />
+    <meta property="og:description" content="Torah learning, built like a modern platform. Multi-school LMS with protected content, storefronts, licensing, quizzes, and teacher tooling." />
+    <meta property="og:title" content="Breslov Academy" />
+    <meta property="og:type" content="website" />
+    <!--PUBLIC_META_END-->
+    <style>
+      /* Avoid public prerender flicker on app/storefront routes (runs before app JS loads) */
+      html.hide-public-prerender #public-prerender { display: none !important; }
+      html.js #public-prerender { display: none !important; }
+
+      /* Minimal styles for the prerender snapshot (SEO + no-JS fallback) */
+      #public-prerender { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; padding: 28px 18px; }
+      #public-prerender .wrap { max-width: 980px; margin: 0 auto; }
+      #public-prerender h1 { font-size: 34px; line-height: 1.1; margin: 0 0 10px; }
+      #public-prerender p { font-size: 16px; line-height: 1.6; margin: 0 0 14px; color: #4b5563; }
+      #public-prerender .grid { display: grid; gap: 22px; grid-template-columns: 1fr; }
+      @media (min-width: 860px) { #public-prerender .grid { grid-template-columns: 1.1fr .9fr; align-items: start; } }
+      #public-prerender .card { border: 1px solid rgba(17,24,39,.12); border-radius: 18px; padding: 18px; background: rgba(17,24,39,.03); }
+      #public-prerender .btns a { display: inline-block; margin-right: 10px; margin-top: 10px; padding: 10px 14px; border-radius: 12px; text-decoration: none; border: 1px solid rgba(17,24,39,.18); }
+      #public-prerender .btns a.primary { background: #111827; color: white; border-color: #111827; }
+      #public-prerender .btns a.secondary { color: #111827; background: white; }
+      #public-prerender ul { margin: 10px 0 0 18px; color: #4b5563; }
+      #public-prerender li { margin: 6px 0; }
+      #public-prerender .small { font-size: 12px; color: #6b7280; margin-top: 10px; }
+    </style>
+    <script>
+      try {
+        document.documentElement.classList.add('js');
+        var p = location.pathname || '/';
+        if (p.startsWith('/app') || p.startsWith('/s/')) {
+          document.documentElement.classList.add('hide-public-prerender');
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <!-- Server-friendly marketing snapshot (static HTML for crawlers, hidden for /app and /s/*) -->
+    <div id="public-prerender">
+      <!--PUBLIC_PRERENDER_START-->
+    <div class="wrap">
+    <div class="grid">
+      <div>
+        <h1>Torah learning, built like a modern platform.</h1>
+        <p>Multi-school learning with protected lessons, storefronts, licensing add-ons, quizzes, and teacher tooling — designed for clarity, speed, and trust.</p>
+        <div class="btns"><a class="primary" href="/s/demo">Browse a School Storefront</a><a class="secondary" href="/login/teacher">Teacher Login</a><a class="secondary" href="/login/student">Student Login</a></div>
+        <div class="small">Storefronts live at <code>/s/&lt;school&gt;</code>. App lives at <code>/app</code>.</div>
+      </div>
+      <div class="card">
+        <div><div style="font-weight:600;font-size:13px;margin-bottom:6px;">What you get</div><ul><li>Protected lessons with watermarking, preview limits, and download rules</li><li>Storefront per school: landing, catalog, checkout, thank you</li><li>Quizzes: teacher builder, student attempts, course integration</li><li>Strict multi-tenancy enforcement (school isolation + scoped entities)</li><li>Vault + Feature Registry: zero feature loss, everything discoverable</li></ul></div><div><div style="font-weight:600;font-size:13px;margin-bottom:6px;">Built for real schools</div><p>Each school has its own branding, policies, products, staff, and learners — while the platform remains unified and secure.</p></div>
+      </div>
+    </div>
+  </div>
+    <!--PUBLIC_PRERENDER_END-->
+    </div>
+
+    <!-- SPA root -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

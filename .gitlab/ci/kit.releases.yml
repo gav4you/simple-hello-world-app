@@ -1,0 +1,22 @@
+# Breslov Academy — Release job (GitLab 'release:' keyword)
+# Requires a Linux/Docker runner for release-cli. If you only have Windows runners, keep this kit un-included.
+
+release:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  rules:
+    - if: $CI_COMMIT_TAG
+  needs:
+    - job: zip_stable
+      artifacts: true
+  script:
+    - echo "Creating GitLab Release for $CI_COMMIT_TAG"
+  release:
+    tag_name: $CI_COMMIT_TAG
+    name: $CI_COMMIT_TAG
+    description: "Automated release for $CI_COMMIT_TAG"
+    assets:
+      links:
+        - name: "Stable ZIP"
+          url: >
+            $CI_PROJECT_URL/-/jobs/artifacts/$CI_COMMIT_TAG/raw/artifacts/breslov-academy-$CI_COMMIT_TAG.zip?job=zip_stable

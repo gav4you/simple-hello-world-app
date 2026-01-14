@@ -1,0 +1,14 @@
+*** IMPORTANT ***
+Do NOT overwrite the canonical root .gitlab-ci.yml.
+Apply one of the patches below depending on your current file.
+
+--- A) If you have NO 'include:' block yet, add near the top:
+
+include:
+  - local: .gitlab/ci/kit.rules.yml
+  - local: .gitlab/ci/kit.ci-node-windows.yml
+  - local: .gitlab/ci/kit.security-basics.yml
+  # Optional (requires Linux runner):
+  # - local: .gitlab/ci/kit.releases.yml
+
+--- B) If you ALREADY have an 'include:' list, append these entries to it.
